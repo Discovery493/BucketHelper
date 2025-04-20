@@ -1,0 +1,6 @@
+- Name: BucketHelper
+  Version: 0.1.0
+  DLL: Code/BucketHelper.dll
+  Dependencies:
+    - Name: EverestCore
+      Version: 1.5105.0

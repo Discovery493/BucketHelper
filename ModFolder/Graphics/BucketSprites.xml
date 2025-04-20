@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sprites>
+  
+  <water_dispenser path="BucketHelper/water_dispenser/" start="empty">
+    <Justify x="0.5" y="1" />
+    <Loop id="empty" path="empty" delay="0.8"/>
+    <Loop id="insert" path="insert" delay="0.1"/>
+  </water_dispenser>
+
+</Sprites>

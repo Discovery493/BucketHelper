@@ -1,0 +1,11 @@
+E:\BucketHelper\bin\Debug\net7.0\BucketHelper.dll
+E:\BucketHelper\bin\Debug\net7.0\BucketHelper.pdb
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.csproj.AssemblyReference.cache
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.GeneratedMSBuildEditorConfig.editorconfig
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.AssemblyInfoInputs.cache
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.AssemblyInfo.cs
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.csproj.CoreCompileInputs.cache
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.dll
+E:\BucketHelper\obj\Debug\net7.0\refint\BucketHelper.dll
+E:\BucketHelper\obj\Debug\net7.0\BucketHelper.pdb
+E:\BucketHelper\obj\Debug\net7.0\ref\BucketHelper.dll
