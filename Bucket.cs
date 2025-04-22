@@ -215,28 +215,9 @@ public class Bucket : Actor
         if (!this.dead)
         {
             Vector2 effectCenter = base.Center;
-            Vector2 effectPos = this.Position;
             if (this.Hold.IsHeld)
             {
-                //Vector2 speed2 = this.Hold.Holder.Speed;
                 this.Hold.Holder.Drop();
-                
-                /*Player player = this.Hold.Holder;
-                if (player.Holding == null)
-                    return;
-                Input.Rumble(RumbleStrength.Light, RumbleLength.Short);
-                //player.Holding.Release(Vector2.Zero);
-                this.Hold.Entity.Depth = this.Hold.idleDepth;
-                this.Hold.Holder = (Player) null;
-                this.Hold.gravityTimer = 0.1f;
-                this.Hold.cannotHoldTimer = this.Hold.cannotHoldDelay;
-                if (this.OnRelease == null)
-                    return;
-                this.OnRelease(Vector2.Zero);
-                player.Holding = (Holdable) null;*/
-                //this.Speed = speed2 / 3f;
-                //this.Speed = Vector2.Zero;
-                //Input.Rumble(RumbleStrength.Medium, RumbleLength.Medium);
             }
 
             this.dead = true;
