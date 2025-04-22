@@ -214,17 +214,34 @@ public class Bucket : Actor
     {
         if (!this.dead)
         {
+            Vector2 effectCenter = base.Center;
+            Vector2 effectPos = this.Position;
             if (this.Hold.IsHeld)
             {
-                Vector2 speed2 = this.Hold.Holder.Speed;
+                //Vector2 speed2 = this.Hold.Holder.Speed;
                 this.Hold.Holder.Drop();
-                this.Speed = speed2 / 3f;
-                Input.Rumble(RumbleStrength.Medium, RumbleLength.Medium);
+                
+                /*Player player = this.Hold.Holder;
+                if (player.Holding == null)
+                    return;
+                Input.Rumble(RumbleStrength.Light, RumbleLength.Short);
+                //player.Holding.Release(Vector2.Zero);
+                this.Hold.Entity.Depth = this.Hold.idleDepth;
+                this.Hold.Holder = (Player) null;
+                this.Hold.gravityTimer = 0.1f;
+                this.Hold.cannotHoldTimer = this.Hold.cannotHoldDelay;
+                if (this.OnRelease == null)
+                    return;
+                this.OnRelease(Vector2.Zero);
+                player.Holding = (Holdable) null;*/
+                //this.Speed = speed2 / 3f;
+                //this.Speed = Vector2.Zero;
+                //Input.Rumble(RumbleStrength.Medium, RumbleLength.Medium);
             }
 
             this.dead = true;
             Audio.Play("event:/char/madeline/death", this.Position);
-            base.Add(new DeathEffect(Color.ForestGreen, new Vector2?(base.Center - this.Position)));
+            base.Add(new DeathEffect(Color.DodgerBlue, new Vector2?(effectCenter - this.Position)));
             //this.sprite.Visible = false;
             image.Visible = false;
             base.Depth = -1000000;
