@@ -156,16 +156,22 @@ public class Bucket : Actor
             this.previousPosition = base.ExactPosition;
             this.MoveH(this.Speed.X * Engine.DeltaTime, this.onCollideH);
             this.MoveV(this.Speed.Y * Engine.DeltaTime, this.onCollideV);
+            // TODO: right copy left
             if ((double) this.Center.X > (double) this.Level.Bounds.Right)
             {
                 this.MoveH(32f * Engine.DeltaTime);
                 if ((double) this.Left - 8.0 > (double) this.Level.Bounds.Right)
                     this.RemoveSelf();
+                //this.Right = (float) this.Level.Bounds.Right;
+                //this.Speed.X *= -0.4f;
             }
-            else if ((double) this.Left < (double) this.Level.Bounds.Left)
+            else if ((double) this.Center.X < (double) this.Level.Bounds.Left)
             {
-                this.Left = (float) this.Level.Bounds.Left;
-                this.Speed.X *= -0.4f;
+                this.MoveH(32f * Engine.DeltaTime);
+                if ((double) this.Right + 8.0 < (double) this.Level.Bounds.Left)
+                    this.RemoveSelf();
+                //this.Left = (float) this.Level.Bounds.Left;
+                //this.Speed.X *= -0.4f;
             }
             else if ((double) this.Top < (double) (this.Level.Bounds.Top - 4))
             {
