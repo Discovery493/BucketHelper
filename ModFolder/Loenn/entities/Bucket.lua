@@ -9,6 +9,6 @@ entity.placements = {
 }
 
 entity.texture = "BucketHelper/bucket"
-entity.justification = {0.5, 0.6875}
+entity.justification = {0.5, 0.7333}
 
 return entity
