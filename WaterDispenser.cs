@@ -19,6 +19,7 @@ public class WaterDispenser : Solid
         this.Position = position;
         base.Add(sprite = BucketHelperModule.SpriteBank.Create("water_dispenser"));
         base.Collider = new Hitbox(22f, 22f, -11f, -23f);
+        OnDashCollide = new DashCollision(this.Dashed);
     }
     
     // from loenn import data to constructor
@@ -42,6 +43,11 @@ public class WaterDispenser : Solid
     public EntityID GetId()
     {
         return id;
+    }
+
+    public int getState()
+    {
+        return state;
     }
 
     public override void Awake(Scene scene)
@@ -72,5 +78,16 @@ public class WaterDispenser : Solid
             this.sprite.Play("insert");
             this.state = 1;
         }
+    }
+
+    public DashCollisionResults Dashed(Player player, Vector2 direction)
+    {
+        //Logger.Log(LogLevel.Info, "WaterDispenser", "Dashed");
+        if (this.state == 1)
+        {
+            this.state = 0;
+        }
+        Audio.Play("event:/new_content/game/10_farewell/fusebox_hit_1", this.Position);
+        return DashCollisionResults.Rebound;
     }
 }

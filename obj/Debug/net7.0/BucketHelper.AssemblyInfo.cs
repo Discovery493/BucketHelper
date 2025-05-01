@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BucketHelper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39215bad9b6835d0176deeda37395f506d505011")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47d84e2daf54391965e6c4ceaad25bade94d23b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("BucketHelper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BucketHelper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
