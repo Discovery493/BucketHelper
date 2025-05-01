@@ -4,6 +4,7 @@ using Monocle;
 
 namespace Celeste.Mod.BucketHelper;
 
+[Tracked]
 [CustomEntity("BucketHelper/WaterDispenser")]
 public class WaterDispenser : Solid
 {
@@ -15,8 +16,9 @@ public class WaterDispenser : Solid
     public WaterDispenser(Vector2 position, EntityID id) : base(position, 0f, 0f, true)
     {
         this.id = id;
+        this.Position = position;
         base.Add(sprite = BucketHelperModule.SpriteBank.Create("water_dispenser"));
-        base.Collider = new Hitbox(22f, 32f, -11f, -33f);
+        base.Collider = new Hitbox(22f, 22f, -11f, -23f);
     }
     
     // from loenn import data to constructor
@@ -37,11 +39,27 @@ public class WaterDispenser : Solid
         return "water_dispenser_" + id.Key;
     }
 
+    public EntityID GetId()
+    {
+        return id;
+    }
+
     public override void Awake(Scene scene)
     {
         base.Awake(scene);
         this.state = 2;
         this.Collidable = true;
+        Vector2 bcpos;
+        bcpos.X = this.Position.X - 10f;
+        bcpos.Y = this.Position.Y - 46f;
+        var bc = new BucketCatch(bcpos, id);
+        scene.Add(bc);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        
     }
 
     public void Hit(Bucket bucket, Vector2 direction)

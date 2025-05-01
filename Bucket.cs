@@ -162,16 +162,12 @@ public class Bucket : Actor
                 this.MoveH(32f * Engine.DeltaTime);
                 if ((double) this.Left - 8.0 > (double) this.Level.Bounds.Right)
                     this.RemoveSelf();
-                //this.Right = (float) this.Level.Bounds.Right;
-                //this.Speed.X *= -0.4f;
             }
             else if ((double) this.Center.X < (double) this.Level.Bounds.Left)
             {
                 this.MoveH(32f * Engine.DeltaTime);
                 if ((double) this.Right + 8.0 < (double) this.Level.Bounds.Left)
                     this.RemoveSelf();
-                //this.Left = (float) this.Level.Bounds.Left;
-                //this.Speed.X *= -0.4f;
             }
             else if ((double) this.Top < (double) (this.Level.Bounds.Top - 4))
             {
@@ -346,15 +342,9 @@ public class Bucket : Actor
 
     private void OnCollideH(CollisionData data)
     {
-        // TODO: The Bucket collide any switches? Implement WaterDispenser here
         if (data.Hit is DashSwitch)
         {
             int num = (int)(data.Hit as DashSwitch).OnDashCollide((Player)null, Vector2.UnitX * (float)Math.Sign(this.Speed.X));
-        }
-        if (data.Hit is WaterDispenser)
-        {
-            WaterDispenser wd = data.Hit as WaterDispenser;
-            wd.Hit(this, Vector2.UnitX * (float)Math.Sign(this.Speed.X));
         }
         Audio.Play("event:/game/05_mirror_temple/crystaltheo_hit_side", this.Position);
         if (Math.Abs(this.Speed.X) > 100f)
@@ -366,15 +356,9 @@ public class Bucket : Actor
 
     private void OnCollideV(CollisionData data)
     {
-        // TODO: The Bucket collide any switches? Implement WaterDispenser here
         if (data.Hit is DashSwitch)
         {
             int num = (int)(data.Hit as DashSwitch).OnDashCollide((Player)null, Vector2.UnitY * (float)Math.Sign(this.Speed.Y));
-        }
-        if (data.Hit is WaterDispenser)
-        {
-            WaterDispenser wd = data.Hit as WaterDispenser;
-            wd.Hit(this, Vector2.UnitY * (float)Math.Sign(this.Speed.Y));
         }
         if (this.Speed.Y > 0f)
         {
