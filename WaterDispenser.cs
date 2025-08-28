@@ -11,12 +11,14 @@ public class WaterDispenser : Solid
     private EntityID id;
     private int state; // 2:no bucket 1:have bucket but not fucked 0:fucked
     private readonly Sprite sprite;
+    public Switch Switch;
     //public Collider catchBucket;
     // :base means call its base class's constructor function
     public WaterDispenser(Vector2 position, EntityID id) : base(position, 0f, 0f, true)
     {
         this.id = id;
         this.Position = position;
+        this.Add((Component) (this.Switch = new Switch(false)));
         base.Add(sprite = BucketHelperModule.SpriteBank.Create("water_dispenser"));
         base.Collider = new Hitbox(22f, 22f, -11f, -23f);
         OnDashCollide = new DashCollision(this.Dashed);
@@ -65,9 +67,24 @@ public class WaterDispenser : Solid
     public override void Update()
     {
         base.Update();
-        
+        if (this.state != 2)
+        {
+            WdTurnOn();
+        }
     }
 
+    private void WdTurnOn()
+    {
+        if (this.Switch.Activated)
+        {
+            return;
+        }
+        if (!this.Switch.Activate())
+        {
+            return;
+        }
+        SoundEmitter.Play("event:/game/general/touchswitch_last_oneshot");
+    }
     public void Hit(Bucket bucket, Vector2 direction)
     {
         if (this.state == 2)
