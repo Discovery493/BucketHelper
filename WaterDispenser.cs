@@ -104,7 +104,11 @@ public class WaterDispenser : Solid
         {
             this.state = 0;
         }
-        Audio.Play("event:/new_content/game/10_farewell/fusebox_hit_1", this.Position);
+        //Audio.Play("event:/new_content/game/10_farewell/fusebox_hit_1", this.Position);
+        if (direction.Y > 0f)
+        {
+            return DashCollisionResults.NormalCollision;
+        }
         return DashCollisionResults.Rebound;
     }
 }

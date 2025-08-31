@@ -171,8 +171,9 @@ public class Bucket : Actor
             }
             else if ((double) this.Top < (double) (this.Level.Bounds.Top - 4))
             {
-                this.Top = (float) (this.Level.Bounds.Top + 4);
-                this.Speed.Y = 0.0f;
+                //this.Top = (float) (this.Level.Bounds.Top + 4);
+                //this.Speed.Y = 0.0f;
+                this.RemoveSelf();
             }
             else if ((double) this.Bottom > (double) this.Level.Bounds.Bottom && SaveData.Instance.Assists.Invincible)
             {
@@ -182,7 +183,7 @@ public class Bucket : Actor
             }
             else if ((double)this.Top > (double)this.Level.Bounds.Bottom)
             {
-                this.Die();
+                this.RemoveSelf();
             }
 
             if ((double)this.X < (double)(this.Level.Bounds.Left + 10))
