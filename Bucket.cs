@@ -169,6 +169,11 @@ public class Bucket : Actor
                 if ((double) this.Right + 8.0 < (double) this.Level.Bounds.Left)
                     this.RemoveSelf();
             }
+            else if (((double) this.Top >= (double) (this.Level.Bounds.Top - 4)) && ((double) this.Top < (double) this.Level.Bounds.Top))
+            {
+                this.Top = (float) (this.Level.Bounds.Top + 4);
+                this.Speed.Y = 0.0f;
+            }
             else if ((double) this.Top < (double) (this.Level.Bounds.Top - 4))
             {
                 //this.Top = (float) (this.Level.Bounds.Top + 4);
