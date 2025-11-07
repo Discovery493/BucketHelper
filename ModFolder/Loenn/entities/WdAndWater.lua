@@ -14,7 +14,8 @@ wdAndWater.placements = {
     name = "WdAndWater",
     data = {
         width = 16,
-        height = 16
+        height = 16,
+        waterPersistent = false
     }
 }
 
