@@ -29,6 +29,7 @@ public class Bucket : Actor
         Position.Y = position.Y;
         this.previousPosition = Position;
         HasWater = hasWater;
+        this.id = id;
         Collider = new Hitbox(8f, 14f, -4f, -8f);
         Depth = 100;
         //base.Add(this.sprite = BucketHelperModule.SpriteBank.Create("bucket"));
@@ -78,6 +79,10 @@ public class Bucket : Actor
         base.Added(scene);
         this.Level = this.SceneAs<Level>();
         if (this.Level.Session.GetFlag(this.FlagName))
+        {
+            base.RemoveSelf();
+        }
+        if (!BucketHelperModule.BucketCanLoad)
         {
             base.RemoveSelf();
         }
@@ -156,7 +161,6 @@ public class Bucket : Actor
             this.previousPosition = base.ExactPosition;
             this.MoveH(this.Speed.X * Engine.DeltaTime, this.onCollideH);
             this.MoveV(this.Speed.Y * Engine.DeltaTime, this.onCollideV);
-            // TODO: right copy left
             if ((double) this.Center.X > (double) this.Level.Bounds.Right)
             {
                 this.MoveH(32f * Engine.DeltaTime);

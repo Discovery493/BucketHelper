@@ -25,7 +25,7 @@ public class WdAndWater : Entity
         waterPersistent = persistent;
         BucketHelperModule.WaterManager.AddRecord(id);
         hasNewWater = BucketHelperModule.WaterManager.GetPersist(id);
-        Logger.Log(LogLevel.Info, "WdAndWater", $"Constructor called with id: {id}.");
+        //Logger.Log(LogLevel.Info, "WdAndWater", $"Constructor called with id: {id}.");
     }
 
     public WdAndWater(EntityData data, Vector2 offset, EntityID id) : this(data.Position + offset,  (float)data.Width, (float)data.Height, data.Nodes[0] + offset, id, data.Bool("waterPersistent", false))

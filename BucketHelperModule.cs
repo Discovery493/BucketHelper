@@ -7,6 +7,7 @@ public class BucketHelperModule : EverestModule
     public static BucketHelperModule Instance;
     public static SpriteBank SpriteBank;
     public static WdPersisWaterManager WaterManager;
+    public static bool BucketCanLoad = true;
     public override void Load()
     {
         WaterManager = new WdPersisWaterManager();
