@@ -73,7 +73,7 @@ public class Bucket : Actor
             return Bucket.GetFlagName(this.id);
         }
     }
-
+    
     public override void Added(Scene scene)
     {
         base.Added(scene);
@@ -82,7 +82,7 @@ public class Bucket : Actor
         {
             base.RemoveSelf();
         }
-        if (!BucketHelperModule.BucketCanLoad)
+        if (!BucketHelperModule.Session.BucketCanLoad)
         {
             base.RemoveSelf();
         }

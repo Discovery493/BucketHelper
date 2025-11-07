@@ -63,4 +63,9 @@ public class WdPersisWaterManager : Entity
         }
         return false;
     }
+
+    public void ClearRecord()
+    {
+        records.Clear();
+    }
 }

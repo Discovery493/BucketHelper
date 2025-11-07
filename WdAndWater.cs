@@ -23,8 +23,8 @@ public class WdAndWater : Entity
         this.waterHeight = height;
         this.waterPosition = position;
         waterPersistent = persistent;
-        BucketHelperModule.WaterManager.AddRecord(id);
-        hasNewWater = BucketHelperModule.WaterManager.GetPersist(id);
+        BucketHelperModule.Session.AddRecord(id);
+        hasNewWater = BucketHelperModule.Session.GetPersist(id);
         //Logger.Log(LogLevel.Info, "WdAndWater", $"Constructor called with id: {id}.");
     }
 
@@ -36,6 +36,11 @@ public class WdAndWater : Entity
     {
         base.Added(scene);
         scene.Add(dispenser);
+        if (!BucketHelperModule.Session.GetNeedReNew(id)) return;
+        water = new Water(waterPosition, true, false, waterWidth, waterHeight);
+        Scene.Add(water);
+        water.AddTag(Tags.Global);
+        BucketHelperModule.Session.ClearNeedReNew(id);
     }
 
     public override void Update()
@@ -49,7 +54,7 @@ public class WdAndWater : Entity
         if (waterPersistent)
         {
             water.AddTag(Tags.Global);
-            BucketHelperModule.WaterManager.SetPersist(id);
+            BucketHelperModule.Session.SetPersist(id);
         }
     }
 }

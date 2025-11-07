@@ -12,6 +12,6 @@ public class BucketKillTrigger : Trigger
     public override void OnEnter(Player player)
     {
         base.OnEnter(player);
-        BucketHelperModule.BucketCanLoad = false;
+        BucketHelperModule.Session.BucketCanLoad = false;
     }
 }
