@@ -29,7 +29,7 @@ local function addNodeSprites(sprites, entity, wdTexture, nodeX, nodeY)
 end
 
 local function addBlockSprites(sprites, entity, x, y, width, height)
-    local rectangle = drawableRectangle.fromRectangle("fill", x, y, width, height, { 0,0,1,0.8 })
+    local rectangle = drawableRectangle.fromRectangle("fill", x, y, width, height, { 0,0,1,0.5 })
 
     table.insert(sprites, rectangle:getDrawableSprite())
 end

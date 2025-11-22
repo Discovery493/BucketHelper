@@ -7,6 +7,7 @@ namespace Celeste.Mod.BucketHelper;
 [CustomEntity("BucketHelper/WdAndLava")]
 public class WdAndLava : Entity
 {
+    private TileGrid tiles;
     public WaterDispenser dispenser;
     public FireBarrier lava;
     public ExitBlock stone;
@@ -44,16 +45,13 @@ public class WdAndLava : Entity
             if (hasTurnStone)
             {
                 Logger.Log(LogLevel.Info, "WdAndLava", "Has Turn stone");
-                //lava.RemoveSelf();
                 return;
             }
             lava = new FireBarrier(lavaPosition, lavaWidth, lavaHeight);
             scene.Add(lava);
             return;
         }
-        //lava = new Water(lavaPosition, true, false, lavaWidth, lavaHeight);
         Logger.Log(LogLevel.Info, "WdAndLava", "Need re-new");
-        //lava.RemoveSelf();
         stone = new ExitBlock(lavaPosition, lavaWidth, lavaHeight, tileType);
         scene.Add(stone);
         stone.AddTag(Tags.Global);
@@ -65,7 +63,6 @@ public class WdAndLava : Entity
         base.Update();
         if (dispenser.getState() != 0) return;
         if (hasTurnStone) return;
-        //lava = new Water(lavaPosition, lavaWidth, lavaHeight);
         lava.RemoveSelf();
         stone = new ExitBlock(lavaPosition, lavaWidth, lavaHeight, tileType);
         Scene.Add(stone);

@@ -100,7 +100,7 @@ public class WaterDispenser : Solid
     public DashCollisionResults Dashed(Player player, Vector2 direction)
     {
         //Logger.Log(LogLevel.Info, "WaterDispenser", "Dashed");
-        if (this.state == 1)
+        if (this.state == 1 && direction.Y <= 0f)
         {
             this.state = 0;
         }
